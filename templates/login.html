@@ -1,97 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-input[type=text], input[type=password] {
-  width: 25%;
-  padding: 12px 20px;
-  margin: 1px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
 
-button {
-  background-color: #1A3F99;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-}
+    .background {
+      flex: 1;
+      background-image: url("static/HomePage.jpg");
+      background-size: cover;
+      background-position: left;
+    }
 
-button:hover {
-  opacity: 0.8;
-}
+    .login-form {
+      flex: 1;
+      display: flex;
+	  margin: 0 0 80px 150px;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
 
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
+    .login-form-inner {
+      max-width: 300px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
-.imgcontainer {
-  text-align: middle;
-  margin: 24px 0 12px 0;
-}
+    h2 {
+      text-align: center;
+    }
 
-img.avatar {
-  width: 20%;
-  border-radius: 50%;
-  align: middle;
-}
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
-.container {
-  padding: 16px;
-}
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
 
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #1A3F99;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+	
+    .additional-image {
+      margin-top: 500px;
+      text-align: center;
+	  align-items: center;
+    }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
+    .additional-image img {
+      width: 200px;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "") {
+        alert("Please enter a username.");
+        return false;
+      }
+
+      if (password === "") {
+        alert("Please enter a password.");
+        return false;
+      }
+
+      // Additional validation logic if needed
+
+      return true;
+    }
+  </script>
 </head>
 <body>
-
-<h2 align="middle">Inward/Outward Tracker System</h2>
-
-<form action="/action_page.php" method="post">
-  <div class="imgcontainer" align="middle" >
-    <img src="static\UserLoginLogo.jpg" alt="Avatar" class="avatar">
-  </div> 
-
-  <div class="container" align="middle">
-  
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required >
+  <div class="container">
+    <div class="background"></div>
+    <div class="login-form">
+      <div class="login-form-inner">
+        <h2>Login</h2>
+        <form onsubmit="return validateForm()">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password">
+          <input type="submit" value="Login">		  
+		</form>	
+		</div>
+		<div class="additional-image">
+		<img src="static/LTTS.png" alt="Second Image">
+		</div>		
+      </div>
+    </div>
   </div>
-  <div class="container" align="middle">
-    <label for="psw"> <b>Password </b></label>
-    <input type="password" placeholder="Enter Password" name="psw"  required>
-  </div>      
-  <div class="button" align="middle">
-    <button type="submit">Login</button>
-   
-  </div>
-
- 
-</form>
-
 </body>
 </html>
